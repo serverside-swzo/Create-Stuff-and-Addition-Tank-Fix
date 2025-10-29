@@ -12,11 +12,12 @@ import org.jetbrains.annotations.NotNull;
 public class TankCapability implements IFluidHandlerItem {
 
     public static final String TAG_STOCK = "tagStock";
-    public static final int FILL_AMOUNT_PER_OPERATION = 100;
+    public static final int FLUID_TO_POINTS_RATIO = 10;
+    public static final int MAX_POINTS_PER_OPERATION = 100;
 
     protected final ItemStack container;
     private final int capacity;
-    private final Fluid validFluid; 
+    private final Fluid validFluid;
 
     public TankCapability(@NotNull ItemStack container, Void context, int capacity, Fluid validFluid) {
         this.container = container;
@@ -70,18 +71,19 @@ public class TankCapability implements IFluidHandlerItem {
         if (resource.isEmpty() || !isFluidValid(0, resource)) return 0;
 
         double currentStock = getStock();
-        int spaceLeft = this.capacity - (int) currentStock;
+        int pointsSpaceLeft = this.capacity - (int) currentStock;
 
-        if (spaceLeft <= 0) return 0;
+        if (pointsSpaceLeft <= 0) return 0;
 
-        int amountFromSpout = resource.getAmount();
-        int amountToFill = Math.min(amountFromSpout, FILL_AMOUNT_PER_OPERATION);
-        amountToFill = Math.min(amountToFill, spaceLeft); 
+        int pointsFromOfferedFluid = resource.getAmount() / FLUID_TO_POINTS_RATIO;
+        int pointsToAdd = Math.min(pointsSpaceLeft, pointsFromOfferedFluid);
+        pointsToAdd = Math.min(pointsToAdd, MAX_POINTS_PER_OPERATION);
 
-        if (amountToFill <= 0) return 0;
-        if (action.execute()) setStock(currentStock + amountToFill);
+        if (pointsToAdd <= 0) return 0;
+        int fluidActuallyConsumed = pointsToAdd * FLUID_TO_POINTS_RATIO;
 
-        return amountToFill;
+        if (action.execute()) setStock(currentStock + pointsToAdd);
+        return fluidActuallyConsumed;
     }
 
     @NotNull
