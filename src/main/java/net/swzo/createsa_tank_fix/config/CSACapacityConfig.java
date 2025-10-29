@@ -17,9 +17,9 @@ public class CSACapacityConfig {
 
     public static void init() {
 
-        Path path = Path.of("config/create-server.toml");
+        Path path = Path.of("config/create-stuff-additions.toml");
         if (!Files.exists(path)) {
-            LOGGER.warn("[CreateSATankFix] Could not find 'config/create-server.toml'. Using default tank capacities (800, 1600, 3200).");
+            LOGGER.warn("[CreateSATankFix] Could not find 'config/create-stuff-additions.toml'. Using default tank capacities (800, 1600, 3200).");
             return;
         }
 
@@ -34,7 +34,7 @@ public class CSACapacityConfig {
             LOGGER.info("[CreateSATankFix] Loaded Create SA tank capacities from config: S={}, M={}, L={}",
                     SMALL_CAP, MEDIUM_CAP, LARGE_CAP);
         } catch (Exception e) {
-            LOGGER.error("[CreateSATankFix] Failed to read 'config/create-server.toml'. Using default capacities.", e);
+            LOGGER.error("[CreateSATankFix] Failed to read 'config/create-stuff-additions.toml'. Using default capacities.", e);
         }
     }
 }
