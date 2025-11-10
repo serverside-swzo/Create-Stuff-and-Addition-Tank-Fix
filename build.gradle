@@ -10,6 +10,8 @@ group = mod_group_id
 
 repositories {
     mavenLocal()
+    maven { name = "Curios"; url = uri("https://maven.theillusivec4.top/") }
+    maven { url "https://cursemaven.com" }
 }
 
 base {
@@ -65,7 +67,10 @@ neoForge {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
-
+    runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curiosversion}"
+    compileOnly "top.theillusivec4.curios:curios-neoforge:${curiosversion}:api"
+    runtimeOnly "curse.maven:create-stuff-additions-466792:6448012"
+    runtimeOnly "curse.maven:create-328085:7178775"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

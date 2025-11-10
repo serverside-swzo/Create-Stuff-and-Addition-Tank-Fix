@@ -1,0 +1,9 @@
+{
+  "entities": [
+    "minecraft:player"
+  ],
+  "replace": false,
+  "slots": [
+    "tank"
+  ]
+}

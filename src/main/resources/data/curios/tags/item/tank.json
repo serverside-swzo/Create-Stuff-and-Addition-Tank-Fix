@@ -1,0 +1,10 @@
+{
+  "values": [
+    "create_sa:small_filling_tank",
+    "create_sa:medium_filling_tank",
+    "create_sa:large_filling_tank",
+    "create_sa:small_fueling_tank",
+    "create_sa:medium_fueling_tank",
+    "create_sa:large_fueling_tank"
+  ]
+}

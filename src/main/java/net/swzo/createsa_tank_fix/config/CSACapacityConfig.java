@@ -1,15 +1,12 @@
 package net.swzo.createsa_tank_fix.config;
 
 import com.electronwill.nightconfig.core.file.FileConfig;
-import com.mojang.logging.LogUtils;
-import org.slf4j.Logger;
+import net.swzo.createsa_tank_fix.CreateSATankFix;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class CSACapacityConfig {
-
-    private static final Logger LOGGER = LogUtils.getLogger();
 
     public static int SMALL_CAP = 800;
     public static int MEDIUM_CAP = 1600;
@@ -19,7 +16,7 @@ public class CSACapacityConfig {
 
         Path path = Path.of("config/create-stuff-additions.toml");
         if (!Files.exists(path)) {
-            LOGGER.warn("[CreateSATankFix] Could not find 'config/create-stuff-additions.toml'. Using default tank capacities (800, 1600, 3200).");
+            CreateSATankFix.LOGGER.warn("[CreateSATankFix] Could not find 'config/create-stuff-additions.toml'. Using default tank capacities (800, 1600, 3200).");
             return;
         }
 
@@ -31,10 +28,10 @@ public class CSACapacityConfig {
                     .orElse((double)MEDIUM_CAP).intValue();
             LARGE_CAP = config.<Double>getOptional("Fuel/Water Capacity.largeTankCapacity")
                     .orElse((double)LARGE_CAP).intValue();
-            LOGGER.info("[CreateSATankFix] Loaded Create SA tank capacities from config: S={}, M={}, L={}",
+            CreateSATankFix.LOGGER.info("[CreateSATankFix] Loaded Create SA tank capacities from config: S={}, M={}, L={}",
                     SMALL_CAP, MEDIUM_CAP, LARGE_CAP);
         } catch (Exception e) {
-            LOGGER.error("[CreateSATankFix] Failed to read 'config/create-stuff-additions.toml'. Using default capacities.", e);
+            CreateSATankFix.LOGGER.error("[CreateSATankFix] Failed to read 'config/create-stuff-additions.toml'. Using default capacities.", e);
         }
     }
 }
