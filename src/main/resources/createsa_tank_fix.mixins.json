@@ -2,8 +2,10 @@
   "required": true,
   "minVersion": "0.8",
   "package": "net.swzo.createsa_tank_fix.mixin",
+  "plugin": "net.swzo.createsa_tank_fix.mixin.CreateSATankFixMixinPlugin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "TankUpgradeWrapperMixin"
   ],
   "client": [
   ],

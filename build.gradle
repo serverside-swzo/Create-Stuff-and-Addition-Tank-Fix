@@ -10,6 +10,7 @@ group = mod_group_id
 
 repositories {
     mavenLocal()
+    maven { url "https://jitpack.io" }
     maven { name = "Curios"; url = uri("https://maven.theillusivec4.top/") }
     maven { url "https://cursemaven.com" }
 }
@@ -70,7 +71,10 @@ dependencies {
     runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curiosversion}"
     compileOnly "top.theillusivec4.curios:curios-neoforge:${curiosversion}:api"
     runtimeOnly "curse.maven:create-stuff-additions-466792:6448012"
+    compileOnly "curse.maven:sophisticated-backpacks-422301:7169832"
+    compileOnly "curse.maven:sophisticated-core-618298:7168230"
     runtimeOnly "curse.maven:create-328085:7178775"
+    implementation "com.github.Fallen-Breath.conditional-mixin:conditional-mixin-neoforge:0.6.4"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
