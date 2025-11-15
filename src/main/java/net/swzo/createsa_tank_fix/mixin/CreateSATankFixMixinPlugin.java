@@ -7,17 +7,11 @@ import java.util.Set;
 
 public class CreateSATankFixMixinPlugin extends RestrictiveMixinConfigPlugin {
     @Override
-    public String getRefMapperConfig() {
-        return "";
-    }
+    public String getRefMapperConfig() { return ""; }
 
     @Override
-    public void acceptTargets(Set<String> myTargets, Set<String> otherTargets) {
-
-    }
+    public void acceptTargets(Set<String> myTargets, Set<String> otherTargets) {}
 
     @Override
-    public List<String> getMixins() {
-        return List.of();
-    }
+    public List<String> getMixins() { return List.of(); }
 }

@@ -27,9 +27,7 @@ public class TankCapability implements IFluidHandlerItem {
 
     @NotNull
     @Override
-    public ItemStack getContainer() {
-        return container;
-    }
+    public ItemStack getContainer() { return container; }
 
     private double getStock() {
         return container.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY)
@@ -46,25 +44,17 @@ public class TankCapability implements IFluidHandlerItem {
     }
 
     @Override
-    public int getTanks() {
-        return 1;
-    }
+    public int getTanks() { return 1; }
 
     @NotNull
     @Override
-    public FluidStack getFluidInTank(int tank) {
-        return FluidStack.EMPTY;
-    }
+    public FluidStack getFluidInTank(int tank) { return FluidStack.EMPTY; }
 
     @Override
-    public int getTankCapacity(int tank) {
-        return this.capacity;
-    }
+    public int getTankCapacity(int tank) { return this.capacity; }
 
     @Override
-    public boolean isFluidValid(int tank, @NotNull FluidStack stack) {
-        return stack.getFluid() == this.validFluid;
-    }
+    public boolean isFluidValid(int tank, @NotNull FluidStack stack) { return stack.getFluid() == this.validFluid; }
 
     @Override
     public int fill(FluidStack resource, FluidAction action) {
@@ -88,13 +78,9 @@ public class TankCapability implements IFluidHandlerItem {
 
     @NotNull
     @Override
-    public FluidStack drain(int maxDrain, FluidAction action) {
-        return FluidStack.EMPTY;
-    }
+    public FluidStack drain(int maxDrain, FluidAction action) { return FluidStack.EMPTY; }
 
     @NotNull
     @Override
-    public FluidStack drain(FluidStack resource, FluidAction action) {
-        return FluidStack.EMPTY;
-    }
+    public FluidStack drain(FluidStack resource, FluidAction action) { return FluidStack.EMPTY; }
 }
