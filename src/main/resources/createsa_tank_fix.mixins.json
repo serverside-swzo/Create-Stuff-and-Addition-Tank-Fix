@@ -5,6 +5,8 @@
   "plugin": "net.swzo.createsa_tank_fix.mixin.CreateSATankFixMixinPlugin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "EngineVehicleMixin",
+    "ItemMixin",
     "TankUpgradeWrapperMixin"
   ],
   "client": [

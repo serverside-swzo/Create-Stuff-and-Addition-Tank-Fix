@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.function.Consumer;
-@Restriction(require = {@Condition("sophisticatedcore")})
+@Restriction(require = { @Condition("sophisticatedcore") })
 @Mixin(value = TankUpgradeWrapper.class, remap = false)
 public abstract class TankUpgradeWrapperMixin {
     @Shadow

@@ -74,6 +74,7 @@ dependencies {
     compileOnly "curse.maven:sophisticated-backpacks-422301:7169832"
     compileOnly "curse.maven:sophisticated-core-618298:7168230"
     runtimeOnly "curse.maven:create-328085:7178775"
+    compileOnly "curse.maven:immersive-aircraft-666014:6992093"
     implementation "com.github.Fallen-Breath.conditional-mixin:conditional-mixin-neoforge:0.6.4"
 }
 
